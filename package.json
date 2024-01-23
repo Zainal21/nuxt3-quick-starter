@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@types/node": "^20.11.5",
     "nuxt": "^3.9.3",
     "sass": "^1.70.0",
     "vue": "^3.4.14",
@@ -19,6 +20,7 @@
     "@pinia/nuxt": "^0.5.1",
     "axios": "^1.6.5",
     "clsx": "^2.1.0",
+    "event-source-polyfill": "^1.0.31",
     "pinia": "^2.1.7",
     "query-string": "^8.1.0",
     "typescript": "^5.3.3",
