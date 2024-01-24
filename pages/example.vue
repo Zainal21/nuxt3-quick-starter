@@ -1,20 +1,37 @@
 <template>
-  <p>Example Page</p>
-  <ol>
-    <li v-for="(user, index) in users" :key="index">{{ user.name }}</li>
-  </ol>
+  <div>
+    <p>Example Page</p>
+
+    <div v-if="isLoading">Loading...</div>
+
+    <div v-if="error">Error: {{ error.message }}</div>
+
+    <ol v-if="users && !isLoading && !error">
+      <li v-for="(user, index) in users" :key="index">{{ user.name }}</li>
+    </ol>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import UserRepositoryImpl from "~/domain/repositories/users/user.repository.impl";
 import UserService from "~/domain/services/user.service";
-import { type UserEntity } from "~/models/user.entity";
-
-const users = ref<UserEntity[] | null>([]);
+import { useQuery } from "@tanstack/vue-query";
 
 const userService = new UserService(new UserRepositoryImpl());
 
-onMounted(async () => {
-  users.value = await userService.fetchUser();
+// Define the function to fetch user data
+const fetchUsers = async () => {
+  const response = await userService.fetchUser();
+  return response;
+};
+
+// Use useQuery to fetch data
+const {
+  data: users,
+  error,
+  isLoading,
+} = useQuery({
+  queryKey: ["users"],
+  queryFn: fetchUsers,
 });
 </script>
