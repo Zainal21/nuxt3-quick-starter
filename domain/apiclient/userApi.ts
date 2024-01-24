@@ -1,5 +1,3 @@
-import axios from "axios";
-
 class UserApi {
   async getUsers() {
     const api = useApi();
