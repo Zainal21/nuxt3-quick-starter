@@ -20,6 +20,18 @@ yarn install
 bun install
 ```
 
+## Data Fetching
+
+Data fetching is handled by Browser Fetch and [Vue Query](https://tanstack.com/query/latest/docs/vue/overview).
+Data fetching is done in the following order:
+
+1. Create/modify a model for the data to be fetched in `src/models/`
+2. Create/modify an API client class in `domain/apiclient/`
+3. Create/modify a usecase in `domain/usecases/`
+4. Create/modify a repositories in `domain/respositories/`
+5. Create/modify a services in `domain/services/`
+6. Use the service api call in the component that requires the data
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
