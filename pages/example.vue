@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import UserRepositoryImpl from "~/domain/repositories/users/user.repository.impl";
+import UserRepositoryImpl from "~/domain/repositories/users/user.repository";
 import UserService from "~/domain/services/user.service";
 import { useQuery } from "@tanstack/vue-query";
 

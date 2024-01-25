@@ -27,7 +27,7 @@ export const useApi = () => {
         authStore.signOut();
         return;
       }
-      throw error;
+      throw error.response;
     }
   );
   return api;

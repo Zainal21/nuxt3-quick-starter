@@ -21,7 +21,7 @@ const useDef = defineStore(
     const accessToken = ref<string | null>(null);
     const refreshToken = ref<string | null>(null);
     const signIn = async (email: string, password: string) => {
-      const url = "/auth/signin";
+      const url = "#";
       const api = useApi();
       const response = await api.post(url, { email, password });
       const { user, tokens } = response.data;
@@ -32,7 +32,7 @@ const useDef = defineStore(
     };
 
     const signUp = async (name: string, email: string, password: string) => {
-      const url = "/auth/signup";
+      const url = "#";
       const api = useApi();
       const response = await api.post(url, { name, email, password });
       const user = response.data;
@@ -60,4 +60,5 @@ export type ReachableStore = StoreActions<ReturnType<typeof useDef>> &
   StoreGetters<ReturnType<typeof useDef>> &
   StoreState<ReturnType<typeof useDef>>;
 const useStore = (): ReachableStore => useDef();
+
 export const useAuthStore = useStore;

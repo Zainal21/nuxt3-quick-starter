@@ -1,5 +1,5 @@
 import type { UserEntity } from "~/models/user.entity";
-import type { UserRepository } from "../repositories/users/user.repository";
+import type { UserRepository } from "~/domain/repositories/users/user.repository";
 
 class UserUseCase {
   constructor(private userRepository: UserRepository) {}
